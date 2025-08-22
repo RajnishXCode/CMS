@@ -1,0 +1,24 @@
+{
+    "title": "Welcome to Our Website",
+    "description": "We offer a variety of services to help you achieve your goals.",
+    "features": [
+        "High-quality content",
+        "Expert advice",
+        "24/7 support"
+    ],
+    "images": [
+        "/file.svg",
+        "/globe.svg",
+        "/next.svg"
+    ],
+    "buttons": [
+        {
+            "text": "Go Admin",
+            "link": "/admin"
+        },
+        {
+            "text": "Go Dashboard",
+            "link": "/dashboard"
+        }
+    ]
+}
