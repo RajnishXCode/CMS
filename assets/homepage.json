@@ -1,11 +1,12 @@
 {
-  "title": "Welcome to Our portal",
-  "description": "this is our poratl",
+  "title": "Welcome to Our Website",
+  "description": "We offer a variety of services to help you achieve your goals.",
   "features": [
+    "Expert advice",
     "24/7 support",
-    "Full time gaming"
+    "dod"
   ],
-  "image": "/file.svg",
+  "image": "/next.svg",
   "buttons": [
     {
       "text": "Go Admin",
