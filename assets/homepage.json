@@ -1,13 +1,10 @@
 {
-  "title": "Welcome to Our Website",
-  "description": "We offer a variety of services to help you achieve your goals.",
+  "title": "Welcome to Our portal",
+  "description": "this is our poratl",
   "features": [
-    "High-quality content",
-    "Expert advice",
-    "24/7 support",
-    "911"
+    "24/7 support"
   ],
-  "image": "https://images.unsplash.com/photo-1754824321161-764fb98adc71?q=80&w=1170&auto=format&fit=crop",
+  "image": "/file.svg",
   "buttons": [
     {
       "text": "Go Admin",
