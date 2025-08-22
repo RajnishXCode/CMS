@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import globalData from "../../../../assets/global.json";
+import globalData from "@/assets/global.json";
 
 export async function POST(req: NextRequest) {
   try {

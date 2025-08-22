@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import homepageData from "../../assets/homepage.json";
+import homepageData from "@/assets/homepage.json";
 import { useRouter } from "next/navigation";
 
 export default function Home() {

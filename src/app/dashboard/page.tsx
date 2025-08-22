@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, ChangeEvent, useEffect } from "react";
-import homepageData from "../../../assets/homepage.json";
+import homepageData from "@/assets/homepage.json";
 import { useAppContext } from "@/context/AppContext";
 
 interface Button {
