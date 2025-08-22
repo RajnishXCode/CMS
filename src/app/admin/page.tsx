@@ -2,11 +2,16 @@
 import React from 'react'
 import globalData from '../../../assets/global.json';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAppContext } from "@/context/AppContext";
 
 
 function AdminPage() {
+  const router = useRouter();
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState<boolean|null>(null);
+
+  const {setIsAdmin } = useAppContext();
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,15 +19,21 @@ function AdminPage() {
     setIsValid(null);
   };
 
-  const handleValidate = () => {
-    const valid = password === globalData.validationPasswd;
-    setIsValid(valid);
-    if (valid) {
-      // Redirect to admin dashboard or perform other actions
-      alert('Password is valid. Redirecting to admin dashboard...');
-
-      // Redirect to the admin dashboard
-      window.location.href = `/dashboard`;
+  const handleValidate = async () => {
+    try {
+      const res = await fetch("/api/validate-admin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const result = await res.json();
+      setIsValid(result.success);
+      if (result.success) {
+        setIsAdmin(true);
+        router.push("/dashboard");
+      }
+    } catch (err) {
+      setIsValid(false);
     }
   };
 

@@ -6,11 +6,7 @@
         "Expert advice",
         "24/7 support"
     ],
-    "images": [
-        "/file.svg",
-        "/globe.svg",
-        "/next.svg"
-    ],
+    "image": "/next.svg",
     "buttons": [
         {
             "text": "Go Admin",
