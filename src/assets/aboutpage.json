@@ -9,7 +9,14 @@
     "Responsive design"
   ],
   "team": [
-    { "name": "Rajnish XCode", "role": "Lead Developer" }
+    {
+      "name": "Rajnish XCode",
+      "role": "Lead Developer"
+    },
+    {
+      "name": "Joker",
+      "role": "QuadB"
+    }
   ],
   "contact": {
     "email": "contact.rajnishtripathi@gmail.com"
