@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: "Update homepage.json via CMS",
+          message: `Update ${path} via CMS`,
           content: Buffer.from(JSON.stringify(data, null, 2)).toString(
             "base64"
           ),

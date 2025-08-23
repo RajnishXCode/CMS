@@ -1,20 +1,16 @@
 {
-    "title": "Welcome to Our Website",
-    "description": "We offer a variety of services to help you achieve your goals.",
-    "features": [
-        "High-quality content",
-        "Expert advice",
-        "24/7 support"
-    ],
+    "title": "Lightweight CMS Project",
+    "tagline": "A simple, modern CMS for your content.",
+    "description": "Effortlessly manage blogs and pages with a clean dashboard and intuitive tools.",
     "image": "/next.svg",
     "buttons": [
         {
-            "text": "Go Admin",
-            "link": "/admin"
+            "text": "Learn More",
+            "link": "/about"
         },
         {
-            "text": "Go Dashboard",
-            "link": "/dashboard"
+            "text": "View Blogs",
+            "link": "/blogs"
         }
     ]
 }

@@ -1,0 +1,17 @@
+{
+  "title": "About Lightweight CMS Project",
+  "description": "This project is a lightweight, modern CMS built with Next.js. It provides an intuitive dashboard for managing blogs and pages, with a focus on simplicity and speed.",
+  "features": [
+    "Fast and lightweight",
+    "Easy to use admin dashboard",
+    "Blog and page management",
+    "Modern tech stack (Next.js, TypeScript)",
+    "Responsive design"
+  ],
+  "team": [
+    { "name": "Rajnish XCode", "role": "Lead Developer" }
+  ],
+  "contact": {
+    "email": "contact.rajnishtripathi@gmail.com"
+  }
+}

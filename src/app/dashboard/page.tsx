@@ -74,7 +74,7 @@ export default function DashboardPage() {
       const res = await fetch("/api/commit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ data, path: "assets/homepage.json" }),
+        body: JSON.stringify({ data, path: "src/assets/homepage.json" }),
       });
       const result = await res.json();
       alert(result.message);
