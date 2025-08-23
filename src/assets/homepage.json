@@ -1,8 +1,8 @@
 {
-  "title": "new title",
+  "title": "Lightweight CMS Project",
   "tagline": "A simple, modern CMS for your content.",
   "description": "Effortlessly manage blogs and pages with a clean dashboard and intuitive tools.",
-  "image": "/window.svg",
+  "image": "/next.svg",
   "buttons": [
     {
       "text": "Learn More",
