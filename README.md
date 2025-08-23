@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js CMS Project
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+This project is a modern, secure, and extensible Content Management System (CMS) built with Next.js, MongoDB Atlas, and GitHub integration. It provides a user-friendly dashboard for managing homepage content, images, and features, with robust admin authentication and session management.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Current Capabilities
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Admin Authentication:**
+  - Secure registration and login for admin users.
+  - Passwords are hashed and stored in MongoDB Atlas.
+  - JWT-based session management with HttpOnly cookies for security.
+  - Automatic validation of admin session on every page reload and route change.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Dashboard UI:**
+  - Edit homepage title, description, features, and main image.
+  - Add, update, and delete homepage features dynamically.
+  - Select images from the public folder or add external image links.
+  - Preview the current homepage image.
+  - Save changes to homepage content directly to a GitHub repository (using the GitHub REST API).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Admin Management:**
+  - Register new admin accounts (with domain and project association).
+  - Validate admin credentials before granting access to dashboard features.
 
-## Learn More
+- **Session & Security:**
+  - JWT tokens are validated on the backend for every session.
+  - Loader animation is shown while authentication is being validated.
+  - Access to dashboard is denied until admin validation is complete.
 
-To learn more about Next.js, take a look at the following resources:
+- **Extensible Structure:**
+  - Easily add new content types, features, or admin roles.
+  - Centralized authentication for multiple projects/sites.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
