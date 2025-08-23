@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { use, useEffect } from 'react'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppContext } from "@/context/AppContext";
@@ -8,12 +8,13 @@ import globalData from "@/assets/global.json";
 
 function AdminPage() {
   const router = useRouter();
+  const { isAdmin,setIsAdmin, isAuthLoading } = useAppContext();
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
   const [registerMode, setRegisterMode] = useState(false);
   const [registerStatus, setRegisterStatus] = useState<string | null>(null);
-  const { setIsAdmin } = useAppContext();
   const [domain, setDomain] = useState("");
 
   useEffect(() => {
@@ -21,6 +22,12 @@ function AdminPage() {
       setDomain(window.location.hostname);
     }
   }, []);
+
+  useEffect(() => {
+    if (!isAuthLoading && isAdmin) {
+      router.push("/admin/dashboard");
+    }
+  }, [isAdmin, isAuthLoading]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,7 +48,7 @@ function AdminPage() {
       setIsValid(result.success);
       if (result.success) {
         setIsAdmin(true);
-        router.push("/dashboard");
+        router.push("/admin/dashboard");
       }
     } catch (err) {
       setIsValid(false);
@@ -66,6 +73,23 @@ function AdminPage() {
       setRegisterStatus("Server error.");
     }
   };
+
+  if (isAuthLoading || isAdmin) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-spin">
+            <rect x="10" y="10" width="40" height="40" rx="8" fill="#0070f3" />
+            <circle cx="20" cy="20" r="4" fill="#fff" />
+            <circle cx="40" cy="20" r="4" fill="#fff" />
+            <circle cx="20" cy="40" r="4" fill="#fff" />
+            <circle cx="40" cy="40" r="4" fill="#fff" />
+            <circle cx="30" cy="30" r="4" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginTop: "40px" }}>
