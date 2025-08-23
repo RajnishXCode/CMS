@@ -4,6 +4,7 @@
 
 This project is a modern, secure, and extensible Content Management System (CMS) built with Next.js, MongoDB Atlas, and GitHub integration. It provides a user-friendly dashboard for managing homepage content, images, and features, with robust admin authentication and session management.
 
+
 ## Current Capabilities
 
 - **Admin Authentication:**
@@ -16,19 +17,34 @@ This project is a modern, secure, and extensible Content Management System (CMS)
   - Edit homepage title, description, features, and main image.
   - Add, update, and delete homepage features dynamically.
   - Select images from the public folder or add external image links.
-  - Preview the current homepage image.
-  - Save changes to homepage content directly to a GitHub repository (using the GitHub REST API).
+  - Preview homepage image.
+  - Save homepage content changes directly to a GitHub repository.
+  - Edit About page content, including team and contact info.
+  - Manage blogs and images via dedicated admin sections.
 
 - **Admin Management:**
   - Register new admin accounts (with domain and project association).
-  - Validate admin credentials before granting access to dashboard features.
+  - Validate admin credentials before dashboard access.
 
 - **Session & Security:**
-  - JWT tokens are validated on the backend for every session.
-  - Loader animation is shown while authentication is being validated.
-  - Access to dashboard is denied until admin validation is complete.
+  - JWT tokens validated on backend for every session.
+  - Loader animation during authentication.
+  - Dashboard access denied until admin validation.
 
 - **Extensible Structure:**
   - Easily add new content types, features, or admin roles.
   - Centralized authentication for multiple projects/sites.
+  - Modular React components for easy extension.
+
+- **API Endpoints:**
+  - Validate admin and token via `/api/validate-admin` and `/api/validate-token`.
+  - Create admin via `/api/create-admin`.
+  - Commit changes via `/api/commit`.
+  - List public images via `/api/list-public-images`.
+
+- **Technology Stack:**
+  - Next.js (React framework)
+  - MongoDB Atlas
+  - GitHub REST API integration
+  - Tailwind CSS for styling
 
