@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export async function POST(req: NextRequest) {
   try {
@@ -18,7 +19,25 @@ export async function POST(req: NextRequest) {
 
     const valid = await bcrypt.compare(password, auth.password);
     if (valid) {
-      return NextResponse.json({ success: true });
+      // Generate JWT
+      const secret = process.env.JWT_SECRET || "default_secret";
+      const token = jwt.sign(
+        {
+          userId: auth._id,
+          username: auth.username,
+          domain: auth.domain,
+          project: auth.project,
+        },
+        secret,
+        { expiresIn: "1h" }
+      );
+      // Set HTTP-only cookie
+      const response = NextResponse.json({ success: true, user: { username: auth.username, domain: auth.domain, project: auth.project } });
+      response.headers.set(
+        "Set-Cookie",
+        `token=${token}; HttpOnly; Path=/; Max-Age=3600; SameSite=Strict${process.env.NODE_ENV === "production" ? "; Secure" : ""}`
+      );
+      return response;
     } else {
       return NextResponse.json({ success: false, message: "Invalid password." }, { status: 401 });
     }

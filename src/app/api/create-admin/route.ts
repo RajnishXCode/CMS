@@ -7,7 +7,6 @@ interface AdminRecord {
   password: string;
   domain: string;
   project: string;
-  isAuthenticated: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -31,13 +30,13 @@ export async function POST(req: NextRequest) {
       password: hashedPassword,
       domain,
       project,
-      isAuthenticated: false,
       createdAt: now,
       updatedAt: now,
     };
     await db.collection("cms_auth").insertOne(adminRecord);
     return NextResponse.json({ success: true, message: "Admin created." });
   } catch (error) {
+    console.error("[create-admin]", error);
     return NextResponse.json({ success: false, message: "Server error." }, { status: 500 });
   }
 }

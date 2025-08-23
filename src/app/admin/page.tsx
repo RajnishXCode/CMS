@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppContext } from "@/context/AppContext";
@@ -14,9 +14,13 @@ function AdminPage() {
   const [registerMode, setRegisterMode] = useState(false);
   const [registerStatus, setRegisterStatus] = useState<string | null>(null);
   const { setIsAdmin } = useAppContext();
+  const [domain, setDomain] = useState("");
 
-  // Get current domain
-  const domain = typeof window !== "undefined" ? window.location.hostname : "";
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDomain(window.location.hostname);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
